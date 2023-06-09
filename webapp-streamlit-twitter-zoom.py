@@ -31,8 +31,8 @@ st.title("Zoom Stock Prices with Twitter Sentiment Analysis")
 
 
 st.write("Stock Price Chart")
-st.write(start_date)
-st.write(end_date)
+# st.write(start_date)
+# st.write(end_date)
 
 
 @st.cache_data
