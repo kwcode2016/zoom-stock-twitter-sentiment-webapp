@@ -23,8 +23,8 @@ st.set_page_config(page_title='Zoom Stock Twitter Analysis')
 # st.sidebar.write('[ ] Negative Sentiment Tweets [red box]')
 # st.sidebar.write('date slider')
 
-start_date = st.sidebar.date_input("Start Date")
-end_date = st.sidebar.date_input("End Date")
+# start_date = st.sidebar.date_input("Start Date")
+# end_date = st.sidebar.date_input("End Date")
 
 
 st.title("Zoom Stock Prices with Twitter Sentiment Analysis")

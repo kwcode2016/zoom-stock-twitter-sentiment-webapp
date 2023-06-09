@@ -1,2 +1,4 @@
 *.csv filter=lfs diff=lfs merge=lfs -text
 full300k_w_r_latest_sentiment_with_finetuning.csv filter=lfs diff=lfs merge=lfs -text
+*.csv
+ filter=lfs diff=lfs merge=lfs -text
