@@ -4,25 +4,13 @@ import altair as alt
 import datetime
 
 
-# creating the side bar
-# status_text = st.sidebar.empty()
 
-# st.sidebar.markdown("""# hello sidebar
-# some things will go here
-
-#                     """)
 
 
 st.set_page_config(page_title='Zoom Stock Twitter Analysis')
 
 
 
-# st.sidebar.write('turn on each chart check marks')
-# st.sidebar.write('[ ] Zoom Stock Price')
-# st.sidebar.write('[ ] Positive sentiment [blue box]')
-# st.sidebar.write('[ ] Neutral Sentiment Tweets [grey box]')
-# st.sidebar.write('[ ] Negative Sentiment Tweets [red box]')
-# st.sidebar.write('date slider')
 
 default_start_date = datetime.date(2019, 4, 1)
 default_end_date = datetime.date(2022, 12, 30)
@@ -35,8 +23,7 @@ st.title("Zoom Stock Prices with Twitter Sentiment Analysis")
 
 
 st.write("Stock Price Chart")
-# st.write(start_date)
-# st.write(end_date)
+
 
 
 @st.cache_data
@@ -54,8 +41,6 @@ zm_date_close = zm_stock_df[['Date', 'Close']]
 zm_date_close['Date'] = pd.to_datetime(zm_date_close['Date'])
 print(zm_date_close.info())
 
-# zoom close price
-# zm_date_close
 
 zm_date_close = zm_date_close[(zm_date_close['Date'] >= pd.to_datetime(start_date)) & (zm_date_close['Date'] <= pd.to_datetime(end_date))]
 
