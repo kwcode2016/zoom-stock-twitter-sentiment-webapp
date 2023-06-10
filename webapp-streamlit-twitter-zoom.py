@@ -52,10 +52,33 @@ zm_price_chart = alt.Chart(zm_date_close).mark_line().encode(
 ).properties( 
     height=400,
     width=800
-    ).interactive()
+    )
 
 
-zm_price_chart
+# zm_price_chart
+
+
+
+# using matplotlib
+import matplotlib.pyplot as plt
+
+
+plt.figure(figsize=(8, 5))
+# Create the chart
+plt.plot(zm_date_close['Date'], zm_date_close['Close'])
+
+# Set the title
+plt.title('Zoom Stock Price')
+
+# Set the x-axis label
+plt.xlabel('Date')
+
+# Set the y-axis label
+plt.ylabel('Price')
+
+# Display the chart
+st.pyplot(plt)
+
 
 
 # chart with finetuning
@@ -82,7 +105,7 @@ zm_positive_chart = alt.Chart(daily_sum).mark_line(color='green').encode(
 ).properties(
     width=800,
     height=400
-).interactive()
+)
 
 
 zm_negative_chart = alt.Chart(daily_sum).mark_line(color='red').encode(
@@ -94,7 +117,7 @@ zm_negative_chart = alt.Chart(daily_sum).mark_line(color='red').encode(
 ).properties(
     width=800,
     height=400
-).interactive()
+)
 
 zm_neutral_chart = alt.Chart(daily_sum).mark_line(color='grey').encode(
     x='date',
@@ -105,11 +128,83 @@ zm_neutral_chart = alt.Chart(daily_sum).mark_line(color='grey').encode(
 ).properties(
     width=800,
     height=400
-).interactive()
+)
 
 
-zm_positive_chart + zm_negative_chart + zm_neutral_chart
+# zm_positive_chart + zm_negative_chart + zm_neutral_chart
 
+
+
+
+# using matplotlib
+
+# Convert the 'date' column to datetime format for Matplotlib
+daily_sum['date'] = pd.to_datetime(daily_sum['date'])
+
+# Create a new figure
+# plt.figure(figsize=(10,6))
+plt.figure(figsize=(8, 5))
+
+# Plot the 'positive' line
+plt.plot(daily_sum['date'], daily_sum['positive'], label='positive', color='green')
+
+# Plot the 'negative' line
+plt.plot(daily_sum['date'], daily_sum['negative'], label='negative', color='red')
+
+# Plot the 'neutral' line
+# plt.plot(daily_sum['date'], daily_sum['neutral'], label='neutral', color='grey')
+
+# Add a legend
+plt.legend()
+
+# Set the title and labels
+plt.title("Sentiment Scores over Time")
+plt.xlabel("Date")
+plt.ylabel("Num of Tweets")
+
+st.pyplot(plt)
+
+
+
+
+
+
+# trying to combine both charts
+
+# Convert the 'date' and 'Date' columns to datetime format for Matplotlib
+daily_sum['date'] = pd.to_datetime(daily_sum['date'])
+zm_date_close['Date'] = pd.to_datetime(zm_date_close['Date'])
+
+# Create a new figure
+fig, ax1 = plt.subplots(figsize=(10,6))
+
+# Plot the 'positive' line
+ax1.plot(daily_sum['date'], daily_sum['positive'], label='positive', color='green')
+
+# Plot the 'negative' line
+ax1.plot(daily_sum['date'], daily_sum['negative'], label='negative', color='red')
+
+# Plot the 'neutral' line
+# ax1.plot(daily_sum['date'], daily_sum['neutral'], label='neutral', color='grey')
+
+# Create a second y-axis
+ax2 = ax1.twinx()
+
+# Plot the price on the second y-axis
+ax2.plot(zm_date_close['Date'], zm_date_close['Close'], label='price', color='blue')
+
+# Add legends
+ax1.legend(loc='upper left')
+ax2.legend(loc='upper right')
+
+# Set the title and labels
+ax1.set_title("Sentiment Scores and Price over Time")
+ax1.set_xlabel("Date")
+ax1.set_ylabel("Score")
+ax2.set_ylabel("Price")
+
+
+st.pyplot(plt)
 
 
 
