@@ -77,7 +77,8 @@ import pandas as pd
 zm_positive_chart = alt.Chart(daily_sum).mark_line(color='green').encode(
     # x='yearmonth(date):O',
     x='date',
-    y='sum(positive)',
+    # y='sum(positive)',
+    y='positive',
 ).properties(
     width=800,
     height=400
@@ -88,7 +89,8 @@ zm_negative_chart = alt.Chart(daily_sum).mark_line(color='red').encode(
     x='date',
     # x='yearmonth(date):O',
     # y='negative',
-    y='sum(negative)',
+    # y='sum(negative)',
+    y='negative',
 ).properties(
     width=800,
     height=400
@@ -98,7 +100,8 @@ zm_neutral_chart = alt.Chart(daily_sum).mark_line(color='grey').encode(
     x='date',
     # x='yearmonth(date):O',
     # y='neutral',
-    y='sum(neutral)',
+    # y='sum(neutral)',
+    y='neutral',
 ).properties(
     width=800,
     height=400
