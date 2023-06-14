@@ -1,3 +1,9 @@
+# Summary: Webapp that displays the Zoom Stock price and the Positive and Negative daily Sentiments
+# Entering the start and end date will update the Graphs to those dates allowing for better analysis
+
+# The conva env list is listed in requirements.txt
+
+
 import streamlit as st
 import pandas as pd
 import altair as alt
