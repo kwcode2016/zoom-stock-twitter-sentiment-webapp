@@ -14,4 +14,4 @@ For a full list of packages used in my conda env please click here:
 [Packages](requirements.txt)
 
 ## Contact
-If you would like to collaborate with me, please do reach out to me at: [kwhome2002@gmail.com](kwhome2002@gmail.com) I look forward to hearing for you! 
+If you would like to collaborate with me, please do reach out to me at: [kwhome2002@gmail.com](mailto:kwhome2002@gmail.com) I look forward to hearing for you! 
